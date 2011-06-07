@@ -30,6 +30,11 @@ module ResqueSpec
     def enqueue(klass, *args)
       ResqueSpec.queue_for(klass) << {:klass => klass, :args => args}
     end
+    def dequeue(klass, *args)
+      ResqueSpec.queue_for(klass).delete_if do |job|
+        job[:class] == klass.to_s && args.empty? || job[:args] == args
+      end
+    end
   end
 
   private

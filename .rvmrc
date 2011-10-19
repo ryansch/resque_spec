@@ -1,1 +1,1 @@
-rvm gemset use resque_spec_v0_2_x
+rvm 1.9.2@resque_spec_v0_2_x --create
